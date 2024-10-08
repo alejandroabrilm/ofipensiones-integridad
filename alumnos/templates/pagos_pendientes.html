@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos Pendientes - {{ alumno.nombre}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pagos Pendientes para {{ alumno.nombre }}</h1>
+
+    {% if pagos_pendientes %}
+    <table>
+        <thead>
+            <tr>
+                <th>Mes</th>
+                <th>Concepto</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pago in pagos_pendientes %}
+            <tr>
+                <td>{{ pago.mes }}</td>
+                <td>{{ pago.get_concepto_display }}</td>
+                <td>${{ pago.valor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No hay pagos pendientes.</p>
+    {% endif %}
+
+</body>
+</html>

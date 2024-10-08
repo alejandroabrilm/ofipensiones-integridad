@@ -19,4 +19,7 @@ from django.urls import include, path
 urlpatterns = [
     path('', include('alumnos.urls')),
     path('admin/', admin.site.urls),
+    path('alumnos/', include('alumnos.urls')),  # Incluye las URLs de la app de gestión de alumnos
+    #path('cronograma/', include('cronogramasAlumnos.urls')),  # Incluye las URLs de la app de cronograma de pagos
+    #path('instituciones/', include('instituciones.urls')),  # Incluye las URLs de la app de instituciones
 ]

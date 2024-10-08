@@ -1,6 +1,10 @@
 from django.db import models
+from instituciones.models import Institucion
 
 class Curso(models.Model):
     grado = models.CharField(max_length=5)
-    grupo = models.CharField(max_length=5)
-    jornada = models.CharField(max_length=15)
+    institucion = models.ForeignKey(Institucion, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        institucion_nombre = self.institucion.nombre if self.institucion else "Sin Institución"
+        return f'{self.grado} - {institucion_nombre}'

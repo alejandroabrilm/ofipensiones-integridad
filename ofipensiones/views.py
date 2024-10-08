@@ -1,12 +1,11 @@
 from django.shortcuts import render
-
 from alumnos.models import Alumno
 from cronogramasAlumnos.models import CronogramaAlumno
 
 
 def pagos_pendientes(request, alumno_id):
     # Obtener el alumno
-    alumno = Alumno.objects.get(documentoIdentidad=alumno_id)
+    alumno = Alumno.objects.get(documento_identidad=alumno_id)
     
     # Consultar los pagos pendientes del cronograma
     pagos_pendientes = CronogramaAlumno.objects.filter(alumno=alumno, pagado=False)
