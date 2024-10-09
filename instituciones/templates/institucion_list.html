@@ -1,0 +1,10 @@
+<h1>Lista de Instituciones</h1>
+<a href="{% url 'institucion_create' %}">Agregar Institucion</a>
+<ul>
+    {% for institucion in instituciones %}
+        <li>
+            {{ institucion.nombre }} - <a href="{% url 'institucion_update' institucion.pk %}">Editar</a>
+            - <a href="{% url 'institucion_delete' institucion.pk %}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>

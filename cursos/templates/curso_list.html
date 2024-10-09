@@ -1,0 +1,10 @@
+<h1>Lista de Cursos</h1>
+<a href="{% url 'curso_create' %}">Agregar Curso</a>
+<ul>
+    {% for curso in cursos %}
+        <li>
+            {{ curso.grado }} - {{ curso.institucion.nombre }}<a href="{% url 'curso_update' curso.pk %}"> Editar</a>
+            - <a href="{% url 'curso_delete' curso.pk %}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>

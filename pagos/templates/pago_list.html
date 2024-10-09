@@ -1,0 +1,11 @@
+<h1>Lista de Pagos</h1>
+<a href="{% url 'pago_create' %}">Agregar Pago</a>
+<ul>
+    {% for pago in object_list %}
+        <li>
+            {{ pago.alumno.nombre }} - {{ pago.concepto }} - {{ pago.valor }} - {{ pago.mes }}
+            <a href="{% url 'pago_update' pago.pk %}">Editar</a>
+            - <a href="{% url 'pago_delete' pago.pk %}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>

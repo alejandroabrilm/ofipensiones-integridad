@@ -3,6 +3,11 @@ from alumnos.models import Alumno
 from cronogramasAlumnos.models import CronogramaAlumno
 
 
+
+def home(request):
+    return render(request, 'home.html')
+
+
 def pagos_pendientes(request, alumno_id):
     # Obtener el alumno
     alumno = Alumno.objects.get(documento_identidad=alumno_id)

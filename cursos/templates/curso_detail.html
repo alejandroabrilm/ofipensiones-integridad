@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Curso</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle de Curso</h1>
+        <p><strong>Nombre:</strong> {{ curso.nombre }}</p>
+        <p><strong>Año:</strong> {{ curso.año }}</p>
+        <h2>Alumnos:</h2>
+        <ul>
+            {% for alumno in curso.alumnos.all %}
+                <li><a href="{% url 'alumno_detail' alumno.id %}">{{ alumno.nombre }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'alumnos' %}">Volver a la lista de Alumnos</a>
+    </div>
+</body>
+</html>

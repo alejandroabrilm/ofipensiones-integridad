@@ -1,0 +1,10 @@
+<h1>Lista de Cronogramas</h1>
+<a href="{% url 'cronograma_create' %}">Agregar Cronograma</a>
+<ul>
+    {% for cronograma in cronogramas %}
+        <li>
+            {{ cronograma.alumno.nombre }} - {{ cronograma.alumno.curso }}<a href="{% url 'cronograma_update' cronograma.pk %}">Editar</a>
+            - <a href="{% url 'cronograma_delete' cronograma.pk %}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>

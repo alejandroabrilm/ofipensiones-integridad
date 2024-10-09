@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from ofipensiones.views import home
+
 urlpatterns = [
-    path('', include('alumnos.urls')),
+    path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('alumnos/', include('alumnos.urls')),  # Incluye las URLs de la app de gestión de alumnos
-    #path('cronograma/', include('cronogramasAlumnos.urls')),  # Incluye las URLs de la app de cronograma de pagos
-    #path('instituciones/', include('instituciones.urls')),  # Incluye las URLs de la app de instituciones
+    path('cronogramasAlumnos/', include('cronogramasAlumnos.urls')),  # Incluye las URLs de la app de cronograma de pagos
+    path('instituciones/', include('instituciones.urls')),  # Incluye las URLs de la app de instituciones
+    path('cursos/', include('cursos.urls')),
+    path('pagos/', include('pagos.urls'))
 ]
