@@ -24,11 +24,11 @@ services:
 upstreams:
   - name: alarms_upstream
     targets:
-      - target: <ip-privada-alarms-app-a>:8080
+      - target: 10.128.0.53:8080
         weight: 100
-      - target: <ip-privada-alarms-app-b>:8080
+      - target: 10.128.0.54:8080
         weight: 100
-      - target: <ip-privada-alarms-app-c>:8080
+      - target: 10.128.0.55:8080
         weight: 100
     healthchecks:
       threshold: 50
@@ -44,5 +44,5 @@ upstreams:
 
   - name: monitoring_upstream
     targets:
-      - target: <ip-privada-monitoring-app>:8080
+      - target: 10.128.0.56:8080
         weight: 100

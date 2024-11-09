@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from alumnos.models import Alumno
 from cronogramasAlumnos.models import CronogramaAlumno
+from django.http import JsonResponse
 
 
 
 def home(request):
     return render(request, 'home.html')
 
+
+def healthCheck(request):
+    return JsonResponse({"message": "OK"}, status=200)
 
 def pagos_pendientes(request, alumno_id):
     # Obtener el alumno
