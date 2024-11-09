@@ -281,4 +281,6 @@ resources:
           cd /labs
           sudo git clone https://github.com/fabrizio111/ofipensiones.git
           cd ofipensiones
-          sudo pip3 install
+          sudo pip3 install -r requirements.txt
+          sudo python3 manage.py makemigrations
+          sudo python3 manage.py migrate
