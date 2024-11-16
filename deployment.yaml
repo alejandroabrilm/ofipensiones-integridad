@@ -60,7 +60,7 @@ resources:
           sudo apt-get update
           sudo apt-get install -y postgresql postgresql-contrib
           sudo -u postgres psql -c "CREATE USER alejandro WITH PASSWORD 'banana';"
-          sudo -u postgres createdb -O alejandro monitoring_db
+          sudo -u postgres createdb -O alejandro ofipensiones
           echo "host all all 0.0.0.0/0 trust" | sudo tee -a /etc/postgresql/12/main/pg_hba.conf
           echo "listen_addresses='*'" | sudo tee -a /etc/postgresql/12/main/postgresql.conf
           echo "max_connections=2000" | sudo tee -a /etc/postgresql/12/main/postgresql.conf
