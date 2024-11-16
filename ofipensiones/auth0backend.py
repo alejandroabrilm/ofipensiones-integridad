@@ -46,6 +46,6 @@ def getRole(request):
     resp = requests.get(url, headers=headers)
     userinfo = resp.json()
 
-    role = userinfo['https://dev-gt3pr6xb607rmq8m.us.auth0.com/userinfo/role']
+    role = userinfo['dev-gt3pr6xb607rmq8m.us.auth0.com/role']
 
     return (role)
