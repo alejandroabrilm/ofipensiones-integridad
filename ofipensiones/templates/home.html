@@ -46,6 +46,21 @@
         .button:hover {
             background-color: #45a049;
         }
+        .navbar-nav {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+        .navbar-nav a {
+            font-size: 120%;
+            text-decoration: none;
+            padding-right: 20px;
+        }
     </style>
 </head>
 <body>
@@ -57,8 +72,21 @@
                     <a class="nav-link" href="/cronogramasAlumnos/">Cronograma Alumnos</a>
                 </li>
             </ul>
+
+            <!-- Formulario de autenticación -->
+            <form class="form-inline my-2 my-lg-0">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%" class="nav-link">{{ user.username }}</a></li>
+                    <li><a style="font-size:120%; padding-right:20px" class="nav-link" href="/logout">Log out</a></li>
+                </ul>
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%; padding-right:20px" class="navbar-link" href="/login/auth0">Login</a></li>
+                </ul>
+                {% endif %}
+            </form>
         </div>
-        
     </div>
 </body>
 </html>

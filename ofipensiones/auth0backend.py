@@ -46,7 +46,6 @@ def getRole(request):
     resp = requests.get(url, headers=headers)
     userinfo = resp.json()
 
-    # Asegúrate de que el campo para el rol sea correcto según la respuesta de Auth0
-    role = userinfo.get('role', None)
+    role = userinfo['https://dev-gt3pr6xb607rmq8m.us.auth0.com/userinfo/role']
 
     return role
