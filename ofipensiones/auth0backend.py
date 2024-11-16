@@ -48,4 +48,4 @@ def getRole(request):
 
     role = userinfo['https://dev-gt3pr6xb607rmq8m.us.auth0.com/userinfo/role']
 
-    return role
+    return (role)
