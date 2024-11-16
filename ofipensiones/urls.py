@@ -26,5 +26,7 @@ urlpatterns = [
     path('cronogramasAlumnos/', include('cronogramasAlumnos.urls')),  # Incluye las URLs de la app de cronograma de pagos
     path('instituciones/', include('instituciones.urls')),  # Incluye las URLs de la app de instituciones
     path('cursos/', include('cursos.urls')),
-    path('pagos/', include('pagos.urls'))
+    path('pagos/', include('pagos.urls')),
+    path(r'', include('django.contrib.auth.urls')),
+    path(r'', include('social_django.urls')),
 ]

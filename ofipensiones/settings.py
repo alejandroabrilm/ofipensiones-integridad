@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'cursos',
     'alumnos',
     'cronogramasAlumnos',
-    'pagos'
+    'pagos',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,23 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://dev-gt3pr6xb607rmq8m.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F34.16.13.165:8080"
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove end slash from routes
+
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-gt3pr6xb607rmq8m.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'f2JQUaAwWjOhEHUDHjUm3WkzrywPsrBW'
+SOCIAL_AUTH_AUTH0_SECRET = 'U9Mk3D1dKclROonwM5H0KO8OfuOxM8NEJ_5LYZWHYCBKFGe_RoeZKXsjOL42YVHo'
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email',
+    'role',
+]
+
+AUTHENTICATION_BACKENDS = (
+    'ofipensiones.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend',
+)

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import CronogramaAlumno
 from .forms import CronogramaForm
+from ofipensiones.auth0backend import getRole
 
 def cronograma_list(request):
     cronogramas = CronogramaAlumno.objects.all()

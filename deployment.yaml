@@ -4,7 +4,7 @@ resources:
 - name: authd-firewall-django
   type: compute.v1.firewall
   properties:
-    network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    network: https://www.googleapis.com/compute/v1/projects/ofipensionesintegridad/global/networks/default
     priority: 1000
     direction: INGRESS
     sourceRanges: 
@@ -18,7 +18,7 @@ resources:
 - name: authd-firewall-db
   type: compute.v1.firewall
   properties:
-    network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    network: https://www.googleapis.com/compute/v1/projects/ofipensionesintegridad/global/networks/default
     priority: 1000
     direction: INGRESS
     sourceTags: 
@@ -35,7 +35,7 @@ resources:
   name: authd-db-instance
   properties:
     zone: us-central1-a
-    machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/ofipensionesintegridad/zones/us-central1-a/machineTypes/e2-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -44,7 +44,7 @@ resources:
       initializeParams:
         sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240307b
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/ofipensionesintegridad/global/networks/default
       networkIP: 10.128.0.60
       accessConfigs:
       - name: External NAT
@@ -71,7 +71,7 @@ resources:
   name: authd-django-instance
   properties:
     zone: us-central1-a
-    machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/ofipensionesintegridad/zones/us-central1-a/machineTypes/e2-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -80,7 +80,7 @@ resources:
       initializeParams:
         sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240307b
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/ofipensionesintegridad/global/networks/default
       networkIP: 10.128.0.61
       accessConfigs:
       - name: External NAT
